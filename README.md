@@ -44,6 +44,8 @@ You should also be able to access your Postgres Database at 'localhost:5432/post
 
 5. To be available to use the repo, you also need to download the DBT and Soda onto your machine. The DBT(data build tool) and Soda are tools that help developers with data transformation and data quality checks. We also use the cosmos to make Airflow's UI more compatible with the DBT. We set all of them up in the requirement.txt and Dockerfile. The requirement.txt is to install the cosmos to connect with dbt and bigquery. The dockerfile is to download the soda and dbt venv into your astro development environment.
 
+6. Before you do the transformation part of the data pipeline, you also need to create a new table in Bigquery. We add a new table in big query called country which includes all of the countries and phone num etc. We can do the transformation to the dataset in order to eliminate the null and outlier values. The sql query can be found in the query.txt.
+
 our group use the dataset from Kaggle
 =================================
 
