@@ -78,21 +78,6 @@ def retail():
 
         return check(scan_name, checks_subpath)
     
-    report = DbtTaskGroup(
-        group_id='report',
-        project_config=DBT_PROJECT_CONFIG,
-        profile_config=DBT_CONFIG,
-        render_config=RenderConfig(
-            load_method=LoadMode.DBT_LS,
-            select=['path:models/report']
-        )
-    )
-    
-    @task.external_python(python='/usr/local/airflow/soda_venv/bin/python')
-    def check_report(scan_name='check_report', checks_subpath='report'):
-        from include.soda.check_function import check
-
-        return check(scan_name, checks_subpath)
     
     chain(
         upload_csv_to_gcs,
@@ -102,8 +87,6 @@ def retail():
         # create_reporting_table,
         transform,
         check_transform(),
-        report,
-        check_report(),
     )
     
 retail()
