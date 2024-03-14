@@ -1,4 +1,5 @@
 -- Now we do the dimension table transformation to make sure the country table is combined with the customer table based on the country name.
+-- We use the Jinja sql language
 WITH customer_cte AS (
 	SELECT DISTINCT
 	    {{ dbt_utils.generate_surrogate_key(['CustomerID', 'Country']) }} as customer_id,
