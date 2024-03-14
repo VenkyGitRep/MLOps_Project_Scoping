@@ -1,6 +1,4 @@
--- dim_datetime.sql
-
--- Create a CTE to extract date and time components
+-- Next we do the dimension table to transform all the date time into the same format as follows
 WITH datetime_cte AS (  
   SELECT DISTINCT
     InvoiceDate AS datetime_id,
