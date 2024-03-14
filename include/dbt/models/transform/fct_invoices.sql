@@ -1,6 +1,4 @@
--- fct_invoices.sql
-
--- Create the fact table by joining the relevant keys from dimension table
+-- Create the fact table based on the three dimension tables and combine them togther to form a complete table.
 WITH fct_invoices_cte AS (
     SELECT
         InvoiceNo AS invoice_id,
