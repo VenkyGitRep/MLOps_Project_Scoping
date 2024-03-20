@@ -1,7 +1,6 @@
-# fct_invoices.yml
+# check function of fact table the fact means the table includes the facts which will be the numbers 
 checks for fct_invoices:
-  # Check fails when invoice_id, quantity, total is missing or
-  # when the data type of those columns is other than specified
+  # Check fails when there are missing values existing in key attributes or the data type is different than what we want
   - schema:
       fail:
         when required column missing: 
@@ -13,7 +12,7 @@ checks for fct_invoices:
           datetime_id: string
           quantity: int
           total: float64
-  # Check fails when NULL values in the column
+  # Check fails when there's NULL values
   - missing_count(invoice_id) = 0:
       name: All invoices have a key
   # Check fails when the total of any invoices is negative
