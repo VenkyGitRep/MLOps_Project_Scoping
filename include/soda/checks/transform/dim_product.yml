@@ -1,7 +1,6 @@
-# dim_product.yml
+# check function for dimension table product
 checks for dim_product:
-  # Check fails when product_key or english_product_name is missing, OR
-  # when the data type of those columns is other than specified
+  # Check fails when columns have missing value, OR when the data type is different than what we want
   - schema:
       fail:
         when required column missing: [product_id, description, price]
@@ -12,7 +11,7 @@ checks for dim_product:
   # Check fails when customer_id is not unique
   - duplicate_count(product_id) = 0:
       name: All products are unique
-  # Check fails when any NULL values exist in the column
+  # Check fails when there's NULL values
   - missing_count(product_id) = 0:
       name: All products have a key
   # Check fails when any prices are negative
