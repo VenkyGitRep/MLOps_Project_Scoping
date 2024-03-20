@@ -1,4 +1,4 @@
-# include/soda/check_function.py
+#define the scan function from soda to use the check function
 def check(scan_name, checks_subpath=None, data_source='retail', project_root='include'):
     from soda.scan import Scan
 
