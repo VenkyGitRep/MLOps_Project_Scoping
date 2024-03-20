@@ -1,5 +1,6 @@
-# dim_customer.yml
+# check function for customer dimension table
 checks for dim_customer:
+#check schema when the follows achieved the check function will make the whole pipelien fail
   - schema:
       fail:
         when required column missing: 
